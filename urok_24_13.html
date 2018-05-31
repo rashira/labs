@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-44</title>
+	</head>
+	<body>
+<ul id="ul"></ul>
+	</body>
+        <script>
+var ul = document.getElementById('ul');
+var arr = [1, 2, 3];
+for (var i = 0; i < arr.length; i++) {
+	var li = document.createElement('li');
+ 	li.innerHTML = arr[i];
+	li.addEventListener('click', func); //привяжем событие
+	ul.appendChild(li);
+}
+
+function func() {
+	alert(this.innerHTML);
+}
+         </script>
+</html>

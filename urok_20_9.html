@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Задачи 1-44</title>
+                <style>
+.my-class {color:red;}
+                </style>
+		<script>
+function go(){
+var elems=document.getElementById('a');
+alert(elems.getAttribute('class'));
+}
+
+function goo(){
+var elems=document.getElementById('a');
+elems.removeAttribute('class');
+alert('Класс удален');
+}
+		</script>
+	</head>
+	<body>
+<p class="my-class" id="a">Абзац с class="my-class". Класс задает красный цвет.</p>
+<input type="submit" onclick="go()" value="Нажми и я выведу класс">
+<br><br>
+<input type="submit" onclick="goo()" value="Нажми и я удалю класс">
+	</body>
+</html>

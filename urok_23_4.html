@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-44</title>
+	</head>
+	<body>
+<a href="http://qwer.ru" title="">Текст первой ссылки</a>
+<a href="http://oppp.com" title="">Текст второй ссылки</a>
+<a href="http://rtom.ru" title="">Текст третьей ссылки</a>
+	</body>
+        <script>
+var elems = document.getElementsByTagName('a');
+for (var i = 0; i < elems.length; i++) {
+	elems[i].addEventListener('mouseover', func);
+}
+
+function func() {
+	this.innerHTML = this.innerHTML + ' (' + this.href + ')';
+        this.removeEventListener('mouseover', func);
+}
+         </script>
+</html>

@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-44</title>
+	</head>
+	<body>
+<p id="parent">Родитель <span id="child">потомок</span></p>
+<input type="submit" id="button" onclick="func()">
+	</body>
+        <script>
+var elem = document.getElementById('button');
+var elem2 = document.getElementById('parent');
+var elem3 = document.getElementById('child');
+function func(){
+elem2.removeChild(elem3)
+}
+         </script>
+</html>

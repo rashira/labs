@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Задачи 1-44</title>
+                <style>
+
+                </style>
+		<script>
+	function go(elem){
+		elem.disabled  =  true;
+		elem.value  =  'О, на меня нельзя больше нажать!';
+		var test = document.getElementById('test');
+		test.innerHTML = 'Привет, мир!';
+		test.style.color  =  'red';
+	}
+		</script>
+	</head>
+	<body>
+<p id="test">
+При нажатии на кнопку текст в абзаце поменяется.
+</p>
+<input type="submit" value="Нажмите на меня!"  onclick="go(this)">
+	</body>
+</html>

@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-44</title>
+	</head>
+	<body>
+<input type="text" >
+<input type="submit" id="button" value="+">
+	</body>
+        <script>
+var button = document.getElementById('button');
+
+button.addEventListener('click', func);
+
+function func(){
+        var parent = button.parentElement;
+	var newInput = document.createElement('input');
+	parent.appendChild(newInput);
+}
+
+         </script>
+</html>

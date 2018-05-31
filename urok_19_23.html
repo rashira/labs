@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Задачи 1-44</title>
+                <style>
+
+                </style>
+		<script>
+function go(){
+    var elem1=document.getElementById('test1');
+    var elem2=document.getElementById('test2');
+    var t = test1.value;
+if (!isNaN(t)){
+    test2.value = t*t;
+    }
+else{alert('Введено не число!')}
+}
+    
+		</script>
+	</head>
+	<body>
+<input type="text" value="" placeholder="Введите число!" id="test1">
+<br><br>
+<input type="text" value="Здесь появится результат." id="test2" disabled>
+<br><br>
+<input type="submit" onclick="go()" value="Нажми на меня">
+	</body>
+</html>
