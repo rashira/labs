@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Uroc</title>
+		<script src="jquery-3.3.1.min.js">
+                </script>
+	</head>
+	<body>
+<input value="qweqwe"></input>
+                <script>
+$('#wraper').children(':lt(3)').each(function() {
+	var width = $(this).width();
+	var height = $(this).height();
+	alert("Ширина: "+width+" Высота: "+height);
+})
+                </script>
+	</body>
+</html>

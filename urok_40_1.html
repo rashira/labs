@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Uroc</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+                </script>
+	</head>
+	<body>
+<p>
+<input type="submit" id="up" >
+<input type="submit" id="down" >
+</p>
+<ol id="list">
+<li>пункт списка</li>
+<li>пункт списка</li>
+<li>пункт списка</li>
+<li>пункт списка</li>
+<li>пункт списка</li>
+<li>пункт списка</li>
+<li>пункт списка</li>
+<li>пункт списка</li>
+<li>пункт списка</li>
+<li>пункт списка</li>
+<li>пункт списка</li>
+</ol>
+                <script>
+$('#up').click(function(){$('#list').slideUp(1000);});
+$('#down').click(function(){$('#list').slideDown(1000);});
+                </script>
+	</body>
+</html>
