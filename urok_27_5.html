@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-44</title>
+	</head>
+<style>
+
+</style>
+	<body>
+<input type="text" id="text">
+<div id="qwer" ></div>
+	</body>
+        <script>
+var elem=document.getElementById('text');
+var elem2=document.getElementById('qwer');
+elem.onkeypress=go;
+function go(event) {
+var code=event.keyCode;
+var key=String.fromCharCode(event.keyCode);
+elem2.innerHTML='Нажатая клавиша: '+key;
+}
+         </script>
+
+</html>

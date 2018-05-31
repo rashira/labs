@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<input type="text" id="num" value="">
+<p id="result"></p> 
+</body>
+		<script>
+var elem = document.getElementById('num');
+elem.addEventListener('blur', func);
+
+function func() {
+	var num = 0;
+	var str = elem.value;
+	var arr = str.split(' ');
+	for (var i = 0; i < arr.length; i++) {
+		num += 1;
+ 	}
+	var p = document.getElementById('result');
+	p.innerHTML = num;
+}    
+		</script>
+</html>

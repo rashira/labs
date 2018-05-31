@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<input type="text" value="" id="task" placeholder="введите число" onblur="func()">  
+</body>  
+		<script>
+var input = document.getElementById('task');
+function func() {
+	window.funcId = window.setInterval(go, 500);
+ }
+
+function go() {
+	if (parseInt(input.value) > 0) {
+		input.value = parseInt(input.value) -1;
+	}
+ 	if(parseInt(input.value) == 0) {
+		stop();
+ 	}
+ }
+
+function stop() {
+	window.clearInterval(window.funcId);
+ } </script>
+</html>

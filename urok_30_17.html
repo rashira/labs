@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<a href="http://google.com">ссылка1</a>
+<a href="333">ссылка2</a>
+<a href="752">ссылка3</a>   
+</body>  
+		<script>
+var elem = document.getElementsByTagName('a');
+
+function start() {
+	for (var i = 0; i < elem.length; i++) {
+		if (elem[i].href.indexOf('http://') == 0) {
+ 			elem[i].innerHTML = elem[i].innerHTML + 'стрелка';
+		}
+	}
+ }    
+		</script>
+</html>

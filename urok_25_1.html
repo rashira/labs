@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-44</title>
+	</head>
+<style>
+#elem {
+	width: 200px;
+	height: 200px;
+	padding: 30px;
+	border: 20px solid #BCBCBC;
+	overflow: auto;
+}
+</style>
+	<body>
+<div id="elem"></div>
+<input type="submit" id="button">
+	</body>
+        <script>
+var elem = document.getElementById('elem');
+var button = document.getElementById('button');
+button.addEventListener('click', func);
+
+function func() {
+	alert(elem.clientTop);
+}
+         </script>
+
+</html>

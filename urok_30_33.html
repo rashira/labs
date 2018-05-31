@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<p id="text">Javascript</p>
+</body>  
+		<script>
+var p = document.getElementById('text');
+window.setInterval(func, 1000);
+var arr = ['red', 'green', 'blue'];
+var i = 0;
+ 
+function func() {
+	p.style.color = arr[i];
+	i++;
+	if (i >= arr.length) {
+		i = 0;
+ 	}
+}   
+</script>
+</html>

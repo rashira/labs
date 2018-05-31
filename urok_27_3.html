@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-44</title>
+	</head>
+<style>
+#button {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+        position: absolute;
+	top: 30px;
+	left: 0px;
+}
+</style>
+	<body>
+Нажмите в любое место
+<div id="button" ></div>
+	</body>
+        <script>
+var elem=document.getElementById('button');
+window.addEventListener('click', go);
+function go(event) {
+elem.style.top=-50+event.clientY+'px';
+elem.style.left=-50+event.clientX+'px';
+}
+         </script>
+
+</html>

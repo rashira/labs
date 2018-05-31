@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Урок </title>
+	</head>
+	<body>
+<input type="text" id="num" value="">  
+</body> 
+		<script>
+var elem = document.getElementById('num');
+elem.addEventListener('blur', func);
+
+function func() {
+	var arr2 = [];
+	var str = elem.value;
+	var arr = str.split('.');
+	arr2 = arr.reverse();
+	var str1 = arr2.join('-');
+	elem.value = str1;
+} 
+		</script>
+</html>

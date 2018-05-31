@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<select name="" id="sel">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+</select>
+<br><br>
+<input type="text" />
+<br><br>
+<button>Click</button>
+	</body>
+		<script>
+var but = document.getElementsByTagName("button")[0];
+
+
+but.addEventListener("click", function(){
+var sel = document.getElementById("sel");
+var inp = document.getElementsByTagName("input")[0];
+sel.selectedIndex = inp.value -1;	
+});
+		</script>
+</html>

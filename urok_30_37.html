@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<input type="checkbox">
+<input type="checkbox">
+<input type="checkbox">
+<button onclick="func()">Жми</button>     
+</body>  
+		<script>
+function func() {
+	var elem = document.getElementsByTagName('input');
+	for (var i = 0; i < elem.length; i++) {
+		elem[i].checked = true;
+ 	}
+}      
+</script>
+</html>

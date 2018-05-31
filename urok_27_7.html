@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-44</title>
+	</head>
+<style>
+
+</style>
+	<body>
+<div id="qwer" >Element</div>
+	</body>
+        <script>
+var elem=document.getElementById('qwer');
+elem.onclick=go;
+function go(event) {
+        if (event.ctrlKey) {
+		elem.innerHTML+='1';
+	}
+	if (event.altKey) {
+		elem.innerHTML+='2';
+	}
+	if (event.shiftKey) {
+		elem.innerHTML+='3';
+	}
+}
+         </script>
+
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-44</title>
+	</head>
+<style>
+#button {
+	border: 1px solid black;
+	width: 500px;
+	height: 500px;
+}
+</style>
+	<body>
+<div id="button" ></div>
+
+	</body>
+        <script>
+var elem=document.getElementById('button');
+elem.onmousemove = func;
+function func(event) {
+this.innerHTML=event.clientX + ':' + event.clientY;
+}
+         </script>
+
+</html>

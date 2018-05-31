@@ -1,0 +1,102 @@
+﻿
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Uroc</title>
+	<meta charset="utf-8">
+	<style>
+		#accordion {
+			margin: 10px 15%;
+		}
+		#accordion > h3 {
+			color: blue;
+			cursor: pointer;
+			margin: 5px 0;
+			padding: .5em .5em .5em .7em;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			border: 1px solid #c5c5c5;
+			background: #f6f6f6;
+			font-weight: normal;
+			color: #454545;
+		}
+		#accordion > h3.select {
+			border: 1px solid #003eff;
+			background: #007fff;
+			font-weight: normal;
+			color: #ffffff;
+		}
+		#accordion > div {
+			height: 0;
+			overflow: hidden;
+			color: #333;
+			padding-left: 15px;
+			padding-right: 15px;
+			transition: height .5s;
+		}
+		.tabs__text {
+			font: 12px Arial;
+			text-align: justify;
+		}
+	</style>
+</head>
+<body style="height: 400px;">	
+	<div id="accordion">
+		<h3>JavaScript</h3>
+		<div class="tabs__text" id="tabs-1">
+			<p>
+				JavaScript — прототипно-ориентированный сценарный язык программирования. Является реализацией языка ECMAScript.
+			</p>
+			<p>
+				JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений. Наиболее широкое применение находит в браузерах как язык сценариев для придания интерактивности веб-страницам.
+			</p>
+		</div>
+		<h3>Jquery</h3>
+		<div class="tabs__text" id="tabs-2">
+			<p>
+				jQuery — библиотека JavaScript, фокусирующаяся на взаимодействии JavaScript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращаться к атрибутам и содержимому элементов DOM, манипулировать ими. Также библиотека jQuery предоставляет удобный API для работы с AJAX. Сейчас разработка jQuery ведётся командой jQuery во главе с Джоном Резигом.
+			</p>
+		</div>
+		<h3>DOM</h3>
+		<div class="tabs__text" id="tabs-3">
+			<p>
+				DOM — это не зависящий от платформы и языка программный интерфейс, позволяющий программам и скриптам получить доступ к содержимому HTML-, XHTML- и XML-документов, а также изменять содержимое, структуру и оформление таких документов.
+			</p>
+		</div>
+		<h3>CSS</h3>
+		<div class="tabs__text" id="tabs-4">
+			<p>
+				CSS — формальный язык описания внешнего вида документа, написанного с использованием языка разметки.
+			</p>
+		</div>
+	</div>
+	<script>
+		var accordion = document.getElementById('accordion');
+		accordion.addEventListener('click', change);
+		function change(event) {
+			var targ = event.target;
+			if (targ.tagName !== 'H3') return; 
+			if (targ.classList.contains('select')) {
+				hideAll();
+			} else {
+				hideAll();
+				targ.classList.add('select');
+				showText(targ.nextElementSibling);
+			}
+		}
+		function hideAll() {
+			var h3El = accordion.querySelectorAll('h3');
+			var divEl = accordion.querySelectorAll('div');
+			for (var i = 0; i < h3El.length; i++) {
+				h3El[i].classList.remove('select');
+			}
+			for (var i = 0; i < divEl.length; i++) {
+				divEl[i].style.height = '0';
+			}
+		}
+		function showText(textEl) {
+			textEl.style.height = textEl.scrollHeight + 'px';
+		}
+	</script>
+</body>
+</html>

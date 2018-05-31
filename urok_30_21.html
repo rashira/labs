@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<img src="images/smile.jpg" id="img" style="height:30px;">
+<img src="images/smile2.jpg" id="img" style="height:30px;">
+<img src="images/smile3.jpg" id="img" style="height:30px;">
+<img  id="task" style="height:50px;">  
+</body>  
+		<script>
+var elem = document.getElementsByTagName('img');
+for (var i = 0; i < elem.length; i++) {
+	elem[i].addEventListener('click', func);
+ }
+
+function func() {
+	var bigImg = document.getElementById('task');
+	bigImg.src = this.src;
+}     
+		</script>
+</html>

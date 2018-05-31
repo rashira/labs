@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<img src="images/smile.jpg" id="img">
+<img src="images/smile2.jpg" id="img">
+<img src="images/smile3.jpg" id="img"> 
+</body>  
+		<script>
+var elem = document.getElementsByTagName('img');
+for (var i = 0; i < elem.length; i++){
+	elem[i].addEventListener('click', func);
+ }
+
+function func() {
+	this.height = this.height * 2;
+ }    
+		</script>
+</html>

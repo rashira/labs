@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<div>Lorem ipsum dolor</div>
+<div>sit amet, consectetur adipisicing</div>
+<div>debitis voluptate eos </div>
+<button>Обрезать</button>                 
+</body>  
+		<script>
+var btn = document.querySelector('button');
+btn.addEventListener('click', func);
+var elems = document.getElementsByTagName('div');
+var str = '';
+
+function func () {
+	for(var i = 0; i < elems.length; i++) {
+		str = elems[i].innerHTML.slice(0, 10)+'...';
+		elems[i].innerHTML = str;
+	}
+}
+</script>
+</html>

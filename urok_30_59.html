@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Урок </title>
+	</head>
+	<body>
+<a href="#">Текст ссылки 1</a>
+<a href="#">Текст ссылки 2</a>
+<a href="#">Текст ссылки 3</a>
+<a href="#">Текст ссылки 4</a>
+<p></p>                     
+</body>  
+		<script>
+var parag = document.querySelector('p');
+var links = document.querySelectorAll('a');
+for (var i = 0; i < links.length; i++) {
+	links[i].addEventListener('click', func);
+}
+
+function func() {
+	for (var j = 0; j < links.length; j++){
+		links[j].style.background = '';
+	}
+	this.style.background = 'red';
+	parag.innerHTML = this.innerHTML;
+} 
+</script>
+</html>

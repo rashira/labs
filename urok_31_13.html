@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>uroc</title>
+	<meta charset="utf-8">
+	<style>      
+		#calendar {
+			border: 1px solid #000;
+			width: 252px;
+			position: relative;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+		#tasks {
+			width: 248px;
+			margin: 10px auto;
+			display: block;
+			min-height: 100px;
+			display: none;
+		}
+		#date {
+			margin: 10px;
+		}
+		.buttons {
+			position: absolute;
+			top: 8px;
+			right: 10px;
+		}
+		.button {
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+		.day {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			margin: 2px;
+			padding: 0 1px;
+			border: 1px solid transparent;
+			margin-right: 11px;
+			text-align: center;
+			cursor: pointer;
+			transition: background .1s, color .1s;
+		}
+		.day:hover {
+			border: 1px solid #000!important;
+			color: #fff;
+			background: #000!important;
+		}
+		.day.today {
+			border: 1px solid #000!important;
+			color: #fff;
+			background: #000!important;
+		}
+		.day.other {
+			visibility: hidden;
+		}
+		.day.task {
+			border-color: #aaa;
+		}
+		.day.active {
+			background: #eee;
+			border-color: #aaa;
+		}
+		.daysName {
+			background: #ddd;
+			border-bottom: 1px solid #999;
+			border-top: 1px solid #999;
+			margin-right: -9px;
+		}
+		#days {
+			margin-right: -9px;
+		}
+		.daysName div {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			margin: 2px;
+			margin-right: 11px;
+			font-size: 14px;
+			line-height: 20px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>	      
+      <div id="organizer">
+         <div id="calendar">
+            <div class="controls">
+               <div id="date"></div>
+               <div class="buttons">
+                  <a class="button" id="prev">&larr;</a>
+                  <a class="button" id="next">&rarr;</a>
+               </div>
+            </div>
+            <div class="daysName">
+               <div>Пн</div>
+               <div>Вт</div>
+               <div>Ср</div>
+               <div>Чт</div>
+               <div>Пт</div>
+               <div>Сб</div>
+               <div>Вс</div>
+            </div>
+            <div id="days"></div>
+         </div>
+         <textarea id="tasks"></textarea>
+      </div>
+	<script>
+		var daysEl = document.getElementById('days');
+		var dateEl = document.getElementById('date');
+		var prevEl = document.getElementById('prev');
+		var nextEl = document.getElementById('next');
+		var tasksEl = document.getElementById('tasks');
+         var year, month;
+		var deferentMonth = 0;
+		var oneHour = 1000 * 60 * 60;
+		var oneDay = oneHour * 24;
+		var MONTHS = [
+			'Январь','Февраль','Март','Апрель', 
+			'Май','Июнь','Июль','Август',
+			'Сентябрь','Октябрь','Ноябрь','Декабрь'
+		];
+		var tasks = {
+			'2016.11.6': [
+				'1. Сделать небольшой калькулятор на js',
+				'2. Сделать игру "Крестики нолики"',
+				'3. Начать делать сайт'
+			],
+			'2016.11.7': [
+				'1. Сверстать шапку сайта',
+				'2. Сверстать блок nav',
+				'3. Сверстать основные блоки',
+				'4. Сверстать фуктер'
+			],
+			'2016.11.23': [
+				'1. Учить верстку',
+				'2. Повторять js',
+				'3. Повторить виды и особености фукнций'
+			],
+			'2016.11.20': [
+				'1. Покормить рыбок',
+				'2. Покормить кота рыбками',
+				'3. Написать игру про рыбок и кота'
+			],
+			'2016.10.11': [
+				'1. Изучать canvas',
+				'2. Повторить преобразоватие типов'
+			],
+			'2016.12.4': [
+				'1. Смотреть сериалы',
+				'2. Смотреть фильмы',
+				'3. Спать'
+			],
+		}
+		create();
+		prevEl.addEventListener('click', prev);
+		nextEl.addEventListener('click', next);
+		tasksEl.addEventListener('keyup', updateTasks);
+		daysEl.addEventListener('click', showTask);
+         function updateTasks() {   
+            var val = tasksEl.value.trim();
+            if (val) {
+               activeEl = daysEl.querySelector('.day.active');
+               activeEl.classList.add('task');
+               var newTask = val.split('\n');
+               var date = year + '.' + (month + 1) + '.' + activeEl.innerHTML;
+               activeEl.setAttribute('data-date', date);
+               tasks[date] = newTask;
+            }
+         }
+		function showTask(event) {
+			var targ = event.target;
+			var dataDate = targ.getAttribute('data-date');
+            if (!targ.classList.contains('day')) return;
+            var days = daysEl.querySelectorAll('.day');
+            for (var i = 0; i < days.length; i++) {
+               days[i].classList.remove('active');
+            }
+            targ.classList.add('active');
+			if (tasks[dataDate]) {
+				printTask(dataDate);
+			} else {
+               tasksEl.value = '';
+            }
+		}
+		function prev() {
+			deferentMonth--;
+			create();
+		}
+		function next() {
+			deferentMonth++;
+			create();
+		}
+		function create() {
+			var d = new Date();	
+			d.setMonth(d.getMonth() + deferentMonth);
+			year = d.getFullYear();
+			month = d.getMonth();
+			var dayCount = (new Date(year, month + 1, 0)).getDate();
+			var dayStart = (new Date(year, month, 1)).getDay();
+			if (dayStart === 0) {
+				dayStart = 7;
+			}
+			var today = null;
+			if (deferentMonth === 0) {
+				var today = d.getDate();
+			}
+			printDate(d);
+			generate(dayCount, today, dayStart, year, month);
+		}
+		function generate(count, today, start, year, month) {
+			var html = '';
+			var dateBase = year + '.' + (month + 1) + '.';
+			for (var i = 1; i < start; i++) {
+				html += '<div class="day other"></div>';
+			}
+			for (var i = 1; i <= count; i++) {		
+				var cl = 'day';
+				if (i === today) {
+					cl += ' today';
+				}
+				var date = dateBase + i;
+				if (tasks[date]) {
+					var dataDate = 'data-date="' + date + '"';
+					cl += ' task';
+				} else {
+					var dataDate = '';
+				}
+				html += '<div ' 
+					+ dataDate 
+					+ ' class="' + cl + '">' 
+					+ i + '</div>';
+			}
+			daysEl.innerHTML = html;
+		}
+		function printDate(d) {
+			dateEl.innerHTML = d.getFullYear() + ' ' 
+				+ MONTHS[d.getMonth()];
+		}
+		function printTask(dataDate) {
+			var task = tasks[dataDate];
+			var html = task.join('\n');
+			tasksEl.value = html;
+			tasksEl.style.display = 'block';
+		}
+	</script>
+</body>
+</html>
